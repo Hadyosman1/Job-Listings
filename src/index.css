@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors */
+  --primary-cyan: hsl(180, 29%, 50%);
+  --background-light: hsl(180, 52%, 96%);
+  --filter-light: hsl(180, 31%, 95%);
+  --text-gray: hsl(180, 8%, 52%);
+  --text-dark: hsl(180, 14%, 20%);
+
+  /* Typography */
+  --League-font: "League Spartan", sans-serif;
+  --font-size-body: 15px;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+
+body {
+  font-family: var(--League-font);
+  font-size: var(--font-size-body);
+  background-color: var(--background-light);
+}
+
+@layer utilities {
+  .shadow-cyan {
+    box-shadow: 0 3px 18px 0px hsl(180, 29%, 50%, 0.35);
+  }
+
+  .header {
+    min-height: 150px;
+    background: var(--primary-cyan)
+      url("./../public/images/bg-header-mobile.svg") no-repeat center / 100%
+      100%;
+  }
+
+  @screen sm {
+    .header {
+      min-height: 180px;
+      background: var(--primary-cyan)
+        url("./../public/images/bg-header-desktop.svg") no-repeat center / 100%
+        100%;
+    }
+  }
+
+  button:disabled {
+    transition: 0.3s;
+    filter: grayscale(50%);
+    cursor: no-drop;
+  }
+
+  button:disabled:hover {
+    opacity: 0.5;
+  }
+}
